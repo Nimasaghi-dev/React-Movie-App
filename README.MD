@@ -5,7 +5,6 @@ A simple and user-friendly movie app built with React to explore popular, trendi
 ## Features
 
 ### 1. **Must-Have Features**
-These features are essential for the basic functionality of the app.
 
 - **Home Page with Movie Listings**  
   Displays a list of popular, trending, or upcoming movies fetched from a public API (e.g., [TMDB API](https://www.themoviedb.org/documentation/api)).
@@ -41,7 +40,6 @@ These features are useful for enhancing the user experience and performance.
   - Handling user interactions (e.g., adding/removing movies from favorites)
 
 ### 3. **Could-Have Features**
-These features are optional but can further enhance the app.
 
 - **Theme Toggle (Dark/Light Mode)**  
   Provide users with an option to switch between dark and light modes for better readability.
