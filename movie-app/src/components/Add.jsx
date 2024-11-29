@@ -6,6 +6,12 @@ const Add = () => {
     const onChange = e => {
         e.preventDefault();
         setQuery(e.target.value); 
+
+        fetch(
+            `https://api.themoviedb.org/3/search/movie?api_key=${
+            import.meta.env.VITE_TMDB_KEY
+            }&language=en-US&query=${e.target.value}&page=1&include_adult=false`
+        )
     }
 
     return (
