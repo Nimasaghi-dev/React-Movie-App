@@ -11,6 +11,14 @@ const ResultCard = ({ movie }) => {
                     <div className="filler-poster"></div>
                 )}
             </div>
+            <div className="info">
+                <div className="header">
+                    <h3 className="title">{movie.title}</h3>
+                    <h4 className="release_date">
+                        {movie.release_date}
+                    </h4>
+                </div>
+            </div>
         </div>
     )
 }
