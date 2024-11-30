@@ -1,6 +1,7 @@
+
 # Movie App
 
-A simple and user-friendly movie app built with React to explore popular, trending, and upcoming movies. Users can search for movies, view detailed information, and manage a favorites list. The app utilizes the TMDB or OMDb API to fetch movie data.
+A simple and user-friendly movie app built with React to explore popular, trending, and upcoming movies. Users can search for movies, view detailed information, and manage a favorites list. The app utilizes the TMDB API to fetch movie data.
 
 ## Features
 
@@ -60,9 +61,10 @@ These features are useful for enhancing the user experience and performance.
 - **React**: For building the UI and managing the component structure.
 - **React Router**: For implementing client-side routing.
 - **Context API**: For managing global state (e.g., favorites list).
-- **TMDB or OMDb API**: For fetching movie data (public APIs for movie data).
-- **Fetch API**: For making HTTP requests to the APIs.
-  
+- **TMDB API**: For fetching movie data (public API for movie data).
+- **Vite**: For fast and optimized development build tool.
+- **Fetch API**: For making HTTP requests to the TMDB API.
+
 ---
 
 ## Installation
@@ -84,18 +86,23 @@ To run this project locally, follow these steps:
    npm install
    ```
 
-4. Start the development server:
+4. **(If you're using Vite)**: Make sure you have Vite installed. If not, run:
    ```bash
-   npm start
+   npm install vite --save-dev
    ```
 
-The app will be available at `http://localhost:3000`.
+5. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+The app will be available at `http://localhost:5173` (default Vite server).
 
 ---
 
 ## Acknowledgements
 
-- [TMDB API](https://www.themoviedb.org/documentation/api) or [OMDb API](http://www.omdbapi.com/) for movie data.
+- [TMDB API](https://www.themoviedb.org/documentation/api) for movie data.
 - [React](https://reactjs.org/) for the UI framework.
 - [React Router](https://reactrouter.com/) for handling navigation.
-
+- [Vite](https://vitejs.dev/) for a fast and optimized development environment.
