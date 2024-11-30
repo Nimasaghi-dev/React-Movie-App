@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 const Add = () => {
     const [query, setQuery] = useState(""); 
+    const [results, setResults] = useState([]); // empty array will be the initial state
 
     const onChange = e => {
         e.preventDefault();
@@ -11,7 +12,11 @@ const Add = () => {
         `https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&query=${e.target.value}&page=1&include_adult=false`)
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            if(!data.errors) {
+                setResults(data.results);
+            } else {
+                setResults([]);
+            }
         })
     }
 
@@ -26,6 +31,15 @@ const Add = () => {
                             onChange={onChange}
                         />
                     </div>
+
+                    {results.length > 0 && (
+                        <ul className='results'>
+                            {results.map(movie => (
+                                <li>{movie.title}</li>
+                            ))}
+
+                        </ul>
+                    )}
                 </div>
             </div>
         </div>
