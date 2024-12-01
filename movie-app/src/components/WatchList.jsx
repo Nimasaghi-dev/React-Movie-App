@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 
 const WatchList = () => {
+    const { watchList } = useContext(GlobalContext);
     return (
         <div>
-            <h1>Watch List</h1>
+            {watchList.map(movie => {
+                return(
+                <h1>{movie.title}</h1>
+                )
+            })}
         </div>
     )
 }
 
-export default WatchList
+export default WatchList;
