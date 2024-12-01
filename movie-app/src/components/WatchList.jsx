@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import MovieCard from "./MovieCard";
 
+
 const WatchList = () => {
     const { watchList } = useContext(GlobalContext);
     return (
@@ -14,7 +15,10 @@ const WatchList = () => {
                 {watchList.length > 0 ? (
                     <div className="movie-grid">
                     {watchList.map(movie => (
-                        <MovieCard movie={movie} type="watchList" />
+                        <MovieCard 
+                            movie={movie} 
+                            type="watchList"
+                        />
                     ))}
                 </div>
                 ) : (
