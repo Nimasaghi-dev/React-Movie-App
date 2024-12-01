@@ -6,10 +6,10 @@ export const MovieControls = ({ movie , type}) => {
             {type === "watchList" && (
                 <>
                     <button className="ctrl-btn">
-                        {/* <i className="fa-fw far fa-eye"></i> - font */}
+                        <i className="fas fa-eye"></i> {/* Watched Icon */}
                     </button>
                     <button className="ctrl-btn">
-                        {/* <i className="fa-fw far fa-eye"></i> - font */}
+                        <i className="fas fa-times"></i> {/* Cross Icon */}
                     </button>
                 </>
             )}
