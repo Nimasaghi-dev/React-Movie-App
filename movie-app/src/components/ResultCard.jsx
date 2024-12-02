@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+import PropTypes from "prop-types";
 
 export const ResultCard = ({ movie }) => {
     const {addMovieToWatchList,
@@ -46,4 +47,12 @@ export const ResultCard = ({ movie }) => {
     )
 }
 
+ResultCard.propTypes = {
+    movie: PropTypes.shape({
+        id: PropTypes.number.isRequired, // Movie ID (required)
+        title: PropTypes.string.isRequired, // Movie Title (required)
+        poster_path: PropTypes.string, // Poster Path (optional)
+        release_date: PropTypes.string, // Release Date (optional)
+    }).isRequired, // Entire movie object is required
+};
 export default ResultCard;

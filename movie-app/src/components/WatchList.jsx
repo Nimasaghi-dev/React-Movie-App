@@ -18,6 +18,7 @@ const WatchList = () => {
                     <div className="movie-grid">
                     {watchList.map(movie => (
                         <MovieCard 
+                            key={movie.id}
                             movie={movie} 
                             type="watchList"
                         />

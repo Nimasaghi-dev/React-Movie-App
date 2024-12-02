@@ -17,6 +17,7 @@ const Watched = () => {
                     <div className="movie-grid">
                         {watched.map(movie => (
                             <MovieCard 
+                                key={movie.id}
                                 movie={movie} 
                                 type="watched"
                             />
