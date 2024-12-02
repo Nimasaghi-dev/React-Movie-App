@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import MovieCard from "./MovieCard";
 
@@ -10,6 +10,8 @@ const WatchList = () => {
             <div className="container">
                 <div className="header">
                     <h1 className="heading">My Watch List</h1>
+
+                    <span className="count-pill">{watchList.length} {watchList.length === 1 ? 'Movie' : 'Movies'}</span>
                 </div>
 
                 {watchList.length > 0 ? (
