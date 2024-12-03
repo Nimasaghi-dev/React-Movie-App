@@ -37,7 +37,7 @@ const HomePage = () => {
 
     return (
         <div className="movie-page">
-            <h1>Home</h1>
+            {/* <h1>Home</h1> */}
             <button onClick={fetchRandomMovies} className="refresh-btn">Refresh Random Movies</button>
             <div className="movie-grid">
                 {randomMovies.map((movie) => (
