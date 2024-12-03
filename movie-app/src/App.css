@@ -284,3 +284,24 @@ header .nav-links li:last-child {
     text-align: center;
 }
 
+.refresh-btn {
+    display: block; /* Make the button behave like a block element */
+    margin: 30px auto; /* Center it horizontally and add vertical space */
+    padding: 10px 20px; /* Button size */
+    background-color: var(--secondary);
+    color: var(--primary);
+    border-radius: 5px;
+    font-size: 1rem; /* Font size */
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.refresh-btn:hover {
+    background-color: #1aa762;
+    opacity: 1;
+}
+
+

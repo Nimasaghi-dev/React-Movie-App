@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import MovieControls from "./MovieControls";
+import "../App.css";
 
 const HomePage = () => {
     const [randomMovies, setRandomMovies] = useState([]);
@@ -37,7 +38,7 @@ const HomePage = () => {
     return (
         <div className="movie-page">
             <h1>Home</h1>
-            <button onClick={fetchRandomMovies}>Refresh Random Movies</button>
+            <button onClick={fetchRandomMovies} className="refresh-btn">Refresh Random Movies</button>
             <div className="movie-grid">
                 {randomMovies.map((movie) => (
                     <div key={movie.id} className="movie-card">
