@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+import PropTypes from "prop-types";
 
 
 export const MovieControls = ({ movie , type}) => {
@@ -39,6 +40,11 @@ export const MovieControls = ({ movie , type}) => {
                 )}
         </div>
     )
+}
+
+MovieControls.propTypes = {
+    movie: PropTypes.object.isRequired,
+    type: PropTypes.string.isRequired
 }
 
 export default MovieControls;

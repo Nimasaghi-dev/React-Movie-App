@@ -1,5 +1,6 @@
 import { createContext , useReducer , useEffect } from "react";
 import AppReducer from "./AppReducer";
+import PropTypes from "prop-types";
 
 // Initial state
 const initialState = {
@@ -60,4 +61,8 @@ const removeFromWatched = (id) => {
             {props.children}
         </GlobalContext.Provider>
     )
+}
+
+GlobalProvider.propTypes = {
+    children: PropTypes.node
 }
