@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom'; // helps to move between pages
 
 const Header = () => {
@@ -12,8 +11,12 @@ const Header = () => {
                         </div>
 
                         <ul className="nav-links">
+                            {/* <li>
+                                <Link to="/">Favorite</Link>
+                            </li> */}
+
                             <li>
-                                <Link to="/">Watch List</Link>
+                                <Link to="/">To Watch</Link>
                             </li>
 
                             <li>
