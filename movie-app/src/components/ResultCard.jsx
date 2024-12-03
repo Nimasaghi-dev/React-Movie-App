@@ -49,10 +49,10 @@ export const ResultCard = ({ movie }) => {
 
 ResultCard.propTypes = {
     movie: PropTypes.shape({
-        id: PropTypes.number.isRequired, // Movie ID (required)
-        title: PropTypes.string.isRequired, // Movie Title (required)
-        poster_path: PropTypes.string, // Poster Path (optional)
-        release_date: PropTypes.string, // Release Date (optional)
-    }).isRequired, // Entire movie object is required
+        id: PropTypes.number.isRequired, 
+        title: PropTypes.string.isRequired, 
+        poster_path: PropTypes.string, 
+        release_date: PropTypes.string, 
+    }).isRequired, 
 };
 export default ResultCard;

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'; // helps to move between pages
+import { Link } from 'react-router-dom'; 
 
 const Header = () => {
     return (

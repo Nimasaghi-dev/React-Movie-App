@@ -26,7 +26,7 @@ const HomePage = () => {
 
     useEffect(() => {
         fetchRandomMovies();
-    }, []); // Empty dependency array runs once on component mount.
+    }, []); 
 
     const isInWatchList = (id) => watchList.some((movie) => movie.id === id);
     const isInWatched = (id) => watched.some((movie) => movie.id === id);
