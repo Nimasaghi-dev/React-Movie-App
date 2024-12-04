@@ -8,7 +8,7 @@
 
 body {
     font-family: "Source Sans Pro", sans-serif;
-    padding: 15px; /* Add distance from the edges */
+    padding: 15px;
     margin: 0;
 }
 
@@ -205,20 +205,18 @@ header .nav-links li:last-child {
     margin: 0;
 }
 
-/* Updated grid for movie layout */
 .movie-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Adjust for smaller images */
-    grid-gap: 20px; /* Add space between items */
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
 }
 
 @media (min-width: 992px) {
     .movie-grid {
-        grid-template-columns: repeat(4, 1fr); /* Adjust for larger screens */
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
-/* Updated movie card and image */
 .movie-card {
     width: 100%;
     border-radius: 5px;
@@ -229,8 +227,8 @@ header .nav-links li:last-child {
 }
 
 .movie-card img {
-    width: 90%; /* Shrink the image */
-    margin: 0 auto; /* Center the image */
+    width: 90%; 
+    margin: 0 auto;
     display: block;
 }
 
@@ -306,4 +304,3 @@ header .nav-links li:last-child {
     background-color: #1aa762;
     opacity: 1;
 }
-
