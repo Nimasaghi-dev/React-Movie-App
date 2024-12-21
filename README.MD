@@ -5,7 +5,7 @@ A simple and user-friendly movie app built with React to explore popular, trendi
 
 ## Features
 
-### 1. **Must-Have Features**
+### 1. **Main Features**
 
 - **Home Page with Movie Listings**  
   Displays a list of popular, trending, or upcoming movies fetched from a public API (e.g., [TMDB API](https://www.themoviedb.org/documentation/api)).
@@ -14,8 +14,6 @@ A simple and user-friendly movie app built with React to explore popular, trendi
   Show detailed information about a selected movie, including:
   - Title
   - Release date
-  - Genre
-  - Rating
 
 - **Client-Side Routing**  
   Navigation between pages (Home, Movie Details, Favorites) using [React Router](https://reactrouter.com/).
@@ -29,7 +27,7 @@ A simple and user-friendly movie app built with React to explore popular, trendi
 - **Responsive Design**  
   The app is fully responsive, ensuring a seamless experience across devices (mobile, tablet, desktop).
 
-### 2. **Should-Have Features**
+### 2. **Side Features**
 These features are useful for enhancing the user experience and performance.
 
 - **Pagination or Infinite Scrolling**  
@@ -40,21 +38,9 @@ These features are useful for enhancing the user experience and performance.
   - Fetching movie data
   - Handling user interactions (e.g., adding/removing movies from favorites)
 
-### 3. **Could-Have Features**
-
-- **Theme Toggle (Dark/Light Mode)**  
-  Provide users with an option to switch between dark and light modes for better readability.
-
-- **Filter by Genre**  
-  Allow users to filter movies based on their genre preferences.
-
 - **Watchlist**  
   Users can add movies to a personal watchlist for future reference.
 
-- **Testing**  
-  Implement testing to ensure the app’s functionality is stable and bug-free.
-
----
 
 ## Tech Stack and Tools
 
