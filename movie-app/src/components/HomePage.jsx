@@ -10,12 +10,15 @@ const HomePage = () => {
 
     const fetchRandomMovies = async () => {
         try {
-            setLoading(true); // Set loading to true on refresh
+            setLoading(true);
             const randomPage = Math.floor(Math.random() * 500) + 1;
             const response = await fetch(
                 `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${randomPage}`
             );
+            console.log(import.meta.env.VITE_TMDB_KEY);
+
             const data = await response.json();
+
             setRandomMovies(data.results);
         } catch (error) {
             console.error("Error fetching random movies:", error);
