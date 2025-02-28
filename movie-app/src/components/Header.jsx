@@ -7,16 +7,16 @@ const Header = () => {
                 <div className="container">
                     <div className="inner-content">
                         <div className="brand">
-                            <Link to="/homepage">Movie App</Link>
+                            <Link to="/">Movie App</Link>
                         </div>
 
                         <ul className="nav-links">
                             <li>
-                                <Link to="/homepage">Home</Link>
+                                <Link to="/">Home</Link>
                             </li>
 
                             <li>
-                                <Link to="/">To Watch</Link>
+                                <Link to="/watchlist">To Watch</Link>
                             </li>
 
                             <li>

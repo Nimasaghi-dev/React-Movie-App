@@ -1,3 +1,5 @@
+
+
 import { useState, useEffect, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import MovieControls from "./MovieControls";
@@ -15,10 +17,11 @@ const HomePage = () => {
             const response = await fetch(
                 `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${randomPage}`
             );
-            console.log(import.meta.env.VITE_TMDB_KEY);
-
+            
             const data = await response.json();
-
+            console.log('Number of movies received:', data.results?.length); // Check how many movies we get
+            console.log('First movie:', data.results?.[0]); // Look at the first movie object
+            
             setRandomMovies(data.results);
         } catch (error) {
             console.error("Error fetching random movies:", error);
