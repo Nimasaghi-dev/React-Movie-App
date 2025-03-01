@@ -1,4 +1,25 @@
-/* General Reset and Base Styles */
+/* CSS Variables for consistent theming */
+:root {
+    --primary-color: #0071e3;
+    --primary-hover: #0077ed;
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --bg-primary: #f5f5f7;
+    --bg-white: white;
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 15px rgba(0, 0, 0, 0.1);
+    --border-radius-sm: 10px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 20px;
+    --border-radius-full: 50%;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --transition-default: all 0.2s ease;
+}
+
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,37 +27,39 @@
 }
 
 body {
-    background-color: #f5f5f7;
-    color: #1d1d1f;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-.container {
-    max-width: 1200px;
+/* Layout */
+.container, .movie-page {
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--spacing-lg);
 }
 
-/* Header Styles */
+/* Header */
 header {
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md);
     position: sticky;
     top: 0;
     z-index: 100;
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-lg);
 }
 
 .inner-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: var(--spacing-md) var(--spacing-lg);
 }
 
+/* Navigation */
 .brand a {
-    color: #1d1d1f;
+    color: var(--text-primary);
     font-size: 1.5rem;
     text-decoration: none;
     font-weight: 600;
@@ -45,67 +68,60 @@ header {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: var(--spacing-lg);
     list-style: none;
 }
 
 .nav-links a {
-    color: #1d1d1f;
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: var(--transition-default);
 }
 
 .nav-links a:hover {
-    color: #0071e3;
+    color: var(--primary-color);
 }
 
-.nav-links .btn {
-    background-color: #0071e3;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    transition: all 0.2s ease;
+/* Buttons */
+.btn, .refresh-btn {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    transition: var(--transition-default);
 }
 
-.nav-links .btn:hover {
-    background-color: #0077ed;
+.btn:hover, .refresh-btn:hover {
+    background-color: var(--primary-hover);
     transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
 }
 
-/* Page Headers */
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0 2rem 0;
+.refresh-btn {
+    margin: 0 auto var(--spacing-lg);
+    display: block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
 }
 
-.heading {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #1d1d1f;
-}
-
-/* Movie Grid - Common for all pages */
-.movie-page {
-    padding: 2rem 0;
-}
-
-.movie-grid {
+/* Movie Grid */
+.movie-grid, .results {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 2rem;
-    padding: 1rem 0;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md) 0;
 }
 
-/* Movie Card Styles */
+/* Movie Card */
 .movie-card {
-    background: white;
-    border-radius: 12px;
+    background: var(--bg-white);
+    border-radius: var(--border-radius-md);
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: var(--transition-default);
+    box-shadow: var(--shadow-md);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -113,7 +129,7 @@ header {
 
 .movie-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-lg);
 }
 
 .movie-card img {
@@ -123,157 +139,141 @@ header {
 }
 
 .movie-info {
-    padding: 1rem;
+    padding: var(--spacing-md);
     flex-grow: 1;
 }
 
 .movie-info h3 {
     font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: #1d1d1f;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
 }
 
 .movie-info p {
     font-size: 0.9rem;
-    color: #86868b;
+    color: var(--text-secondary);
 }
 
 /* Control Buttons */
 .inner-card-controls {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
     background: rgba(245, 245, 247, 0.5);
 }
 
 .ctrl-btn {
-    background: white;
+    background: var(--bg-white);
     border: none;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: var(--border-radius-full);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: var(--transition-default);
+    box-shadow: var(--shadow-sm);
 }
 
 .ctrl-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-md);
 }
 
 .ctrl-btn i {
     font-size: 1rem;
-    color: #1d1d1f;
+    color: var(--text-primary);
 }
 
-/* Add Page Styles */
+/* Add Page */
 .add-page {
-    padding: 2rem 0;
+    padding: var(--spacing-lg) 0;
 }
 
 .add-content {
-    background: white;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: var(--bg-white);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-lg);
 }
 
 .input-wrapper {
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-lg);
 }
 
 .input-wrapper input {
     width: 100%;
-    padding: 1rem;
+    padding: var(--spacing-md);
     border: 1px solid #e5e5e5;
-    border-radius: 10px;
+    border-radius: var(--border-radius-sm);
     font-size: 1rem;
-    transition: all 0.2s ease;
+    transition: var(--transition-default);
 }
 
 .input-wrapper input:focus {
     outline: none;
-    border-color: #0071e3;
+    border-color: var(--primary-color);
     box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.2);
 }
 
-/* Search Results */
-.results {
-    list-style: none;
-    padding: 0;
+/* Headers and Text */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md) 0 var(--spacing-lg);
 }
 
-.results li {
-    margin-bottom: 1rem;
+.heading {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
-/* Count Pills */
 .count-pill {
-    background: #0071e3;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
+    background: var(--primary-color);
+    color: var(--bg-white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-lg);
     font-size: 0.9rem;
     font-weight: 500;
 }
 
-/* Empty State */
-.no-movies {
+/* States */
+.loading, .no-movies {
     text-align: center;
-    color: #86868b;
-    padding: 3rem 0;
-    font-size: 1.2rem;
-    font-weight: 500;
-}
-
-/* Refresh Button */
-.refresh-btn {
-    background: #0071e3;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    margin: 0 auto 2rem;
-    display: block;
-}
-
-.refresh-btn:hover {
-    background: #0077ed;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Loading State */
-.loading {
-    text-align: center;
-    padding: 3rem 0;
-    color: #86868b;
+    padding: var(--spacing-lg) 0;
+    color: var(--text-secondary);
     font-size: 1.2rem;
 }
 
-/* Error Message */
 .error-message {
     color: #ff3b30;
     text-align: center;
-    padding: 1rem;
-    margin-bottom: 1rem;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
     background: rgba(255, 59, 48, 0.1);
-    border-radius: 8px;
+    border-radius: var(--border-radius-sm);
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .container, .movie-page {
+        padding: 0 3rem;
+    }
+}
+
 @media (max-width: 768px) {
-    .movie-grid {
+    .container, .movie-page {
+        padding: 0 var(--spacing-lg);
+    }
+    
+    .movie-grid, .results {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 1rem;
+        gap: var(--spacing-md);
     }
 
     .movie-card img {
@@ -285,20 +285,20 @@ header {
     }
 
     .nav-links {
-        gap: 1rem;
+        gap: var(--spacing-md);
     }
 
     .inner-content {
-        padding: 1rem;
+        padding: var(--spacing-md);
     }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 0 1rem;
+    .container, .movie-page {
+        padding: 0 var(--spacing-md);
     }
-
-    .movie-grid {
+    
+    .movie-grid, .results {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
 
@@ -312,124 +312,5 @@ header {
 
     .nav-links a {
         font-size: 0.9rem;
-    }
-}
-
-/* ... existing code ... */
-
-/* Container spacing */
-.container, .movie-page {
-    max-width: 1400px;  /* Increased from 1200px */
-    margin: 0 auto;
-    padding: 0 4rem;    /* Increased side padding */
-}
-
-/* Result Card Styles (Add page) */
-.results {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 2rem;
-}
-
-.results li {
-    margin-bottom: 0;  /* Reset the previous margin */
-}
-
-/* Make result cards match the style of other movie cards */
-.results .movie-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.results .movie-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.results .movie-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-}
-
-/* Make control buttons consistent across all pages */
-.results .inner-card-controls {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
-    background: rgba(245, 245, 247, 0.5);
-}
-
-.results .ctrl-btn {
-    background: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.results .ctrl-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.results .ctrl-btn i {
-    font-size: 1rem;
-    color: #1d1d1f;
-}
-
-/* Add page specific adjustments */
-.add-content {
-    margin-bottom: 2rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-    .container, .movie-page {
-        padding: 0 3rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .container, .movie-page {
-        padding: 0 2rem;
-    }
-    
-    .results {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 1rem;
-    }
-
-    .results .movie-card img {
-        height: 225px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container, .movie-page {
-        padding: 0 1rem;
-    }
-    
-    .results {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    }
-
-    .results .movie-card img {
-        height: 180px;
     }
 }
