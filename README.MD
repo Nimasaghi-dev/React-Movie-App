@@ -93,4 +93,3 @@ npm run dev
 
 - [TMDB](https://www.themoviedb.org/) for their extensive movie database
 - [Font Awesome](https://fontawesome.com/) for the icons
-- React team for the amazing framework
