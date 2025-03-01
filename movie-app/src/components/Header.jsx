@@ -1,6 +1,25 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom'; 
 
 const Header = () => {
+    useEffect(() => {
+        const handleScroll = () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        
+        // Cleanup
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <div>
             <header>
@@ -24,7 +43,9 @@ const Header = () => {
                             </li>
 
                             <li>
-                                <Link to="/add" className='btn'>+ Add</Link>
+                                <Link to="/add" className='btn'>
+                                    <i className="fas fa-film"></i> Add Movie
+                                </Link>
                             </li>
                         </ul>
                     </div>

@@ -4,6 +4,7 @@ import WatchList from './components/WatchList';
 import Watched from './components/Watched';
 import Add from './components/Add';
 import HomePage from './components/HomePage';
+import GoToTop from './components/GoToTop';
 import './App.css';
 
 import { GlobalProvider } from './context/GlobalState';
@@ -19,6 +20,7 @@ function App() {
           <Route path="/watched" element={<Watched />} />
           <Route path="/add" element={<Add />} />
         </Routes>
+        <GoToTop />
       </Router>
     </GlobalProvider>
   )

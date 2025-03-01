@@ -1,7 +1,7 @@
 /* CSS Variables for consistent theming */
 :root {
-    --primary-color: #0071e3;
-    --primary-hover: #0077ed;
+    --primary-color: #7c3aed;
+    --primary-hover: #6d28d9;
     --text-primary: #1d1d1f;
     --text-secondary: #86868b;
     --bg-primary: #f5f5f7;
@@ -41,13 +41,21 @@ body {
 
 /* Header */
 header {
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-md);
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.08);
     position: sticky;
     top: 0;
     z-index: 100;
     margin-bottom: var(--spacing-lg);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add this new style for header when scrolling */
+header.scrolled {
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.12);
 }
 
 .inner-content {
@@ -63,6 +71,37 @@ header {
     font-size: 1.5rem;
     text-decoration: none;
     font-weight: 600;
+    position: relative;
+    padding: 2px 4px;
+}
+
+.brand a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.brand a:hover {
+    color: var(--primary-color);
+}
+
+.brand a:hover::after {
+    width: 100%;
+}
+
+/* Optional: Add a subtle scale effect */
+.brand a {
+    transform-origin: left;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.brand a:hover {
+    transform: scale(1.05);
 }
 
 .nav-links {
@@ -92,11 +131,15 @@ header {
     border-radius: var(--border-radius-lg);
     cursor: pointer;
     transition: var(--transition-default);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
 }
 
 .btn:hover, .refresh-btn:hover {
     background-color: var(--primary-hover);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
 
@@ -105,6 +148,57 @@ header {
     display: block;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
+}
+
+/* Add animation for the refresh icon */
+.refresh-btn i {
+    transition: transform 0.3s ease;
+}
+
+.refresh-btn:hover i {
+    transform: rotate(180deg);
+}
+
+/* Style for the Add button in nav */
+.nav-links .btn {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.4rem 1rem;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.nav-links .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.nav-links .btn:hover {
+    color: var(--bg-white);
+    transform: translateY(-2px);
+}
+
+.nav-links .btn:hover::before {
+    width: 100%;
+}
+
+/* Add animation for button icons */
+.btn i, .refresh-btn i {
+    transition: transform 0.3s ease;
+}
+
+.nav-links .btn:hover i {
+    transform: scale(1.1);
 }
 
 /* Movie Grid */
@@ -291,6 +385,11 @@ header {
     .inner-content {
         padding: var(--spacing-md);
     }
+
+    .go-to-top {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -313,4 +412,65 @@ header {
     .nav-links a {
         font-size: 0.9rem;
     }
+}
+
+/* Add these styles for the loading indicator */
+.loading-more {
+    text-align: center;
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--bg-primary);
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    margin: 0 auto var(--spacing-md);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Go to Top Button */
+.go-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    width: 45px;
+    height: 45px;
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    border: none;
+    box-shadow: var(--shadow-md);
+    z-index: 99;
+}
+
+.go-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.go-to-top:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.go-to-top i {
+    font-size: 1.2rem;
 }
